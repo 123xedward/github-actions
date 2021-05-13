@@ -1,21 +1,11 @@
-name: myworkflow
-on:
-  workflow_dispatch:
-    inputs:
-      name:
-        description: 'name of the person'
-        required: true
-        default: 'Edward'
-      country:
-          description: 'Country'
-          required: false
+on: [push]
+env:
+ user_name: "Chaminda"
+ demo_name: "Variable Demo"
 jobs:
-  greetuser:
-    runs-on: ubuntu-latest
-    steps:
-    - run: |
-        echo "Hi ${{ github.event.inputs.name }}
-        echo "- in ${{ github.event.inputs.country }}
-  
-  
-  
+ VariableUsageJob:
+   runs-on: ubuntu-latest
+   steps:
+   - name: Using Workflow Variables
+     run: echo Hello, $user_name! 
+          Welcome to $demo_name!!!
